@@ -1,0 +1,33 @@
+this is to test the find and replace command of vi.
+
+myf
+hif
+myf herf herf
+myf
+otf
+
+the command is :%s/<text_to_search>/<text_to_replace_with>/g
+the command "g" at the end of the line is optional it means globaly.
+
+one can use the following perl command to replace text 
+perl -pi -e "s/myf/nif/g" repl_test
+
+Or one can use awk
+awk '{gsub(/pattern/,"text_to_replace_with")}' input_file
+One can even make it coloumn specific
+awk '{gsub(/pattern/,"text_to_replace_with",$1)}' input_file
+
+copy text in other file 
+:3,8w tt
+the above command will copy text from line 3 to 8 in a new file called tt
+need to put "!" after :3,8w i.e :3,8w!  if the file tt already exists
+
+plot "corr_vt_k015857" using 1:2
+set logscale
+
+one can unset logscale by using the following command
+unset logscale y
+
+plot [a:b][c:d] "data_file" using 1:2:3 w e
+
+a,b are the xrange; c,d are the yrange

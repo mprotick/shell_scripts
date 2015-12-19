@@ -1,0 +1,87 @@
+Comparisons:
+-eq	equal to
+-ne	not equal to
+-lt	less than
+-le	less than or equal to
+-gt	greater than
+-ge	greater than or equal to
+
+File Operations:
+-s	file exists and is not empty
+-f	file exists and is not a directory
+-d	directory exists
+-x	file is executable
+-w	file is writable
+-r	file is readable
+
+ a=`echo '11 + 2' | bc`
+ b=`expr 11 + 2`
+-n
+   string is not null.
+
+-z
+  string is null, that is, has zero length
+
+
+mkdir -p /foo/bar/baz  # creates bar and baz within bar under 
+existing /foo
+
+while read line; do echo "$line"; done < file.txt
+
+#!/bin/bash
+FILE=$1
+while read line; do
+     echo "This is a line : $line"
+done < $FILE
+ 
+awk '{print $1,"\t",$2}' input_file
+
+head -157 ovhisq_new.tex | tail -34 > data
+
+awk 'BEGIN {FS="&"} {print $2,$3}' data > data1
+
+ awk '{print $1,"\t"$2,"\t"$1-$2,"\t"($1+$2)*0.5}' data2 >data3
+awk '{print  $1,"\t"$2,"\t"$3,"\t"$4,"\t"$3*$4}' data3 > data4
+
+ awk '{print $2,"\t" log($3)}' ps > ps_l
+
+For more than one command at a time one can use
+pwd ; ls
+
+to know the size of a folder run
+du -h /path/to/folder
+this will list all the files in it. To see only the size run
+du -sh /path/to/folder
+or one can run
+df -h /path/to/folder
+
+to know the linux version run (works on any linux)
+lsb_release -a
+
+to open any file using its default application run
+xdg-open <file>
+
+For printing several files one after another one can use
+cat file1 file2 > output_file
+
+For printing the coloumns of two different files in a single
+file use
+paste file1 file2 > output_file
+
+In order to redirect error message to another file type
+<command> 2> err_msg
+
+to extract data from some given row number to a particular row use
+awk 'NR>2 && NR<8' input_file > output_file
+
+In order to run a gnuplot script use
+gnuplot input_file
+or you can open gnuplot and use
+load 'input_file'
+
+In gnuplot to plot specific range (eg from row no. 100 to row no. 200)
+plot "filename.txt" every ::100::200 using 1:2 with lines
+
+ fit y(x) 'ps.1648.cb0.in.loc' every ::15::47 u 1:2 via A,m
+                                                              79,1          Bot
+

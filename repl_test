@@ -45,3 +45,6 @@ To unset them type
 :set nonumber
 :set nohlsearch 
 
+In gnuplot one can plot data corresponding to certain part 
+of a file. To select the row range use
+plot "file-name" every ::86::117 u 2:3 

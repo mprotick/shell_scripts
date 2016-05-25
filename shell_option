@@ -96,4 +96,30 @@ t, --list 	List the contents of an archive.
 u, --update 	Append files, but only those that are newer than the copy in the archive.
 x, --extract, --get 	Extract files from an archive.
                                                               79,1          Bot
+echo by itself displays a line of text. It will take any thing within the following "..." two quotation marks, 
+literally, and just print out as it is. However with echo -e you're making echo to enable interpret backslash 
+escapes. So with this in mind here are some examples
 
+INPUT: echo "abc\n def \nghi" 
+OUTPUT:abc\n def \nghi
+
+INPUT: echo -e "abc\n def \nghi"
+OUTPUT:abc
+ def 
+ghi
+
+Difference between -n and \c
+echo -n "Enter your name: "
+read name
+echo "Hello, $name"
+
+This will work on some systems, and will look like this:
+
+Enter your name: Steve
+Hello, Steve
+
+However, on other systems, you need to write the code like this:
+
+echo "Enter your name: \c"
+read name
+echo "Hello, $name"

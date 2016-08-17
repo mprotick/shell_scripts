@@ -73,7 +73,6 @@ In order to redirect error message to another file type
 
 to extract data from some given row number to a particular row use
 awk 'NR>2 && NR<8' input_file > output_file
-awk 'NR>96 && NR<129 {print $2,"\t"$3}' out.ll.1200 > ps.ll.1200
 
 In order to run a gnuplot script use
 gnuplot input_file
@@ -84,10 +83,44 @@ In gnuplot to plot specific range (eg from row no. 100 to row no. 200)
 plot "filename.txt" every ::100::200 using 1:2 with lines
 
  fit y(x) 'ps.1648.cb0.in.loc' every ::15::47 u 1:2 via A,m
+                                                              79,1          Bot
+ tar -cf archive.tar file1 file2
+ The other tar commands are 
+ A, --catenate, --concatenate 	Append tar files to an archive.
+c, --create 	Create a new archive.
+d, --diff, --compare 	Calculate any differences between the archive and the file system.
+--delete 	Delete from the archive. (This function doesn't work on magnetic tapes).
+r, --append 	Append files to the end of a tar archive.
+t, --list 	List the contents of an archive.
+--test-label 	Test the archive label, and exit.
+u, --update 	Append files, but only those that are newer than the copy in the archive.
+x, --extract, --get 	Extract files from an archive.
+                                                              79,1          Bot
+echo by itself displays a line of text. It will take any thing within the following "..." two quotation marks, 
+literally, and just print out as it is. However with echo -e you're making echo to enable interpret backslash 
+escapes. So with this in mind here are some examples
 
-tar -cf a.tar *
-tar -xf st.tar
+INPUT: echo "abc\n def \nghi" 
+OUTPUT:abc\n def \nghi
 
-If you set logscale in gnuplot and want to see the ytics as 10^1,10^2
-then use 
-set format y "10^{%L}"
+INPUT: echo -e "abc\n def \nghi"
+OUTPUT:abc
+ def 
+ghi
+
+Difference between -n and \c
+echo -n "Enter your name: "
+read name
+echo "Hello, $name"
+
+This will work on some systems, and will look like this:
+
+Enter your name: Steve
+Hello, Steve
+
+However, on other systems, you need to write the code like this:
+
+echo "Enter your name: \c"
+read name
+echo "Hello, $name"
+

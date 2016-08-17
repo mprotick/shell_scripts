@@ -33,7 +33,7 @@ plot [a:b][c:d] "data_file" using 1:2:3 w e
 a,b are the xrange; c,d are the yrange
 
 To move forward by one screen use "ctrl" + "f"
-To move backward by one screen use "ctrl" + "f"
+To move backward by one screen use "ctrl" + "b"
 To goto the end of a file use "Shift" + g or G
 To delete rest of a line use D
 

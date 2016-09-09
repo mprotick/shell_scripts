@@ -88,6 +88,7 @@ then use
 set format y "10^{%L}"
 
  fit y(x) 'ps.1648.cb0.in.loc' every ::15::47 u 1:2 via A,m
+ fit [5:60] y(x) 'hhps.p111.M1m5280'  via A, m
 
  tar -xf st.tar
  tar -cf archive.tar file1 file2
@@ -134,15 +135,15 @@ if command in awk
 Eg1.
 $ awk '{
 if ($3 =="" || $4 == "" || $5 == "")
-	print "Some score for the student",$1,"is missing";'
+    print "Some score for the student",$1,"is missing";'
 }' student-marks
 Some score for the student RinRao is missing
 Eg2.
 $ awk '{
 if ($3 >=35 && $4 >= 35 && $5 >= 35)
-        print $0,"=>","Pass";
+    print $0,"=>","Pass";
 else
-        print $0,"=>","Fail";
+    print $0,"=>","Fail";
 }' student-marks
 Jones 2143 78 84 77 => Pass
 Gondrol 2321 56 58 45 => Pass

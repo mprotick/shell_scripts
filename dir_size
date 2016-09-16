@@ -1,0 +1,13 @@
+#!/bin/sh
+rm -rf dir_usage
+for i in `ls`
+do
+size=`du -s $i | awk '{print $1}'`
+DirSize=$(echo "scale=0; $size/1024.0" | bc -l)
+if [ $DirSize -gt 5000 ]; then
+echo $DirSize Mb $i >> dir_usage
+fi
+done
+#size=`du -s | awk '{print $1}'`
+#DirSize=$(echo "scale=0; $size/1024.0" | bc -l)
+#echo Total: $DirSize Mb

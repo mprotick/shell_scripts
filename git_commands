@@ -1,0 +1,111 @@
+start with
+git add file.name && git commit -m "removed merge conflicts"
+
+
+#####################################################
+# how to commit changes done in the existing files
+#####################################################
+git commit -a -m "xxxxxxxx"
+git status
+git push
+
+=====>> Very Important <<=====
+############################################################
+# how to create a branch and delete it locally and remotely
+############################################################
+git checkout -b <branch_name>
+git branch   ---> it'll show the newly formed branch along with master(default branch)
+git checkout master  ----> switch to master branch
+git branch -d <branch_name>    ----> delete the branch locally
+git branch -D <branch_name>    ----> delete the branch remotely
+[OR]
+git push origin --delete <branch_name>
+
+
+#################################################################
+How to remove an upstream remote repository in github
+#################################################################
+git remote rm upstream
+[OR]
+git remote set-url upstream <url>
+[OR]
+edit .git/config and remove upstream
+
+[remote "upstream"]
+         url = https://github.com/cms-bph/BuToKstarMuMu.git
+         fetch = +refs/heads/*:refs/remotes/upstream/*
+
+Then you can add a new upstream
+
+git remote add upstream <url>
+
+
+
+###########################################################################
+How to keep your forked repo synced with the upstream source 
+###########################################################################
+a very good tutorial is at below
+---> http://2buntu.com/articles/1459/keeping-your-forked-repo-synced-with-the-upstream-source/
+
+git remote add upstream https://github.com/cms-bph/BToKstarMuMu.git
+git fetch upstream
+git rebase upstream/master
+git push origin master
+
+
+
+
+#################################################
+# how to add a new file and commit the update
+#################################################
+git add <file_name>
+git commit -m "xxxxxx"
+git status
+git pull --rebase  # another option: git pull
+git push
+
+############################
+# create a new tag v2.1
+############################
+git add <file-name>
+git commit -m "xxx"
+git status
+git push
+git tag -a v2.1 -a -m "xxx"
+git tag
+git push origin v2.1
+
+#########################
+# rename a tag
+#########################
+git tag NEW OLD
+git tag -d OLD
+git push origin NEW
+
+##########################
+# remove a directory
+##########################
+git rm -r <dir-name>
+git commit -m "xxxx"
+git push origin master
+
+############################################
+# create a new repository on command line  #
+############################################
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/nsahoo/evtgen-decs.git
+git push -u origin master
+
+####################################################
+#  push an existing repository from command line   #
+####################################################
+git remote add origin https://github.com/nsahoo/evtgen-decs.git
+git push -u origin master
+
+###########################################
+#  How to update local repository in git
+###########################################
+rename the files first and then do git pull

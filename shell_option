@@ -147,3 +147,10 @@ else
 }' student-marks
 Jones 2143 78 84 77 => Pass
 Gondrol 2321 56 58 45 => Pass
+
+if you write a awk file (i.e .awk extension) then run it
+awk -f <file-name.awk> <input-file>
+
+one can start writing a file directly in terminal using
+cat > file-name
+Then save it using Ctrl+d

@@ -154,3 +154,6 @@ awk -f <file-name.awk> <input-file>
 one can start writing a file directly in terminal using
 cat > file-name
 Then save it using Ctrl+d
+
+ pdf2ps Lattice2017_416_protick.pdf
+ps2pdf14 -dPDFSETTINGS=/prepress Lattice2017_416_protick.ps doc2.pdf
